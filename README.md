@@ -56,10 +56,21 @@ sudo apt-get install -y libsdl2-dev libc++-7-dev libc++abi-7-dev libxi-dev
 sudo apt-get install -y clang-7
 ```
 
+The default cmake version is too old, we need to update it by deleting it and installing with snap again.
+
+For the SD card image that we have, cmake is already installed by snap, so we just need to delete it by:
+
+```angular2html
+sudo apt remove --purge cmake
+hash -r
+
+```
+
 Then we need to change the default cblas.h:
 ```angular2html
 cd /usr/include/aarch64-linux-gnu
 sudo ln -sf cblas-netlib.h cblas.h
+cd
 ```
 
 (optional)Then we can update the repository, by the method described by Github: 
